@@ -9,6 +9,7 @@
         </b-form-group>
         <b-form-group label="Forma:">
             <b-form-radio-group
+            v-model="selected1"
             :options="optionsF"
             name="radio-inline"
             ></b-form-radio-group>
@@ -19,7 +20,7 @@
             name="radio-inline"
             ></b-form-radio-group>
         </b-form-group>
-        Total price:<span class="pricePizza">{{selected}}</span>
+        Total price:<span class="pricePizza" v-if="selected !=0">{{selected + this.$store.getters.getToppingPrice}}</span>
     </div>
 </template>
 <script>
@@ -27,15 +28,16 @@
       name : 'radioBtn',
     data() {
       return {
-        selected: '0',
+        selected: 65,
+        selected1: 'Rotund',
         optionsM: [
-          { text: 'S', value: '65' },
-          { text: 'L', value: '85' },
-          { text: 'XL', value: '100' }
+          { text: 'S', value: 65 },
+          { text: 'L', value: 85 },
+          { text: 'XL', value: 100 }
         ],
         optionsF: [
-          { text: 'Rotund'},
-          { text: 'Oval' }
+          { text: 'Rotund', value: 'Rotund'},
+          { text: 'Oval', value: 'Oval' }
         ],
         optionsT: [
           { text: 'Subtire'},

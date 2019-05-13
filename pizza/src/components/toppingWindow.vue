@@ -1,37 +1,71 @@
 <template>
     <div class="toppingWindow">
+        <button  v-on:click = "closeToppings" type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">×</span>
+        </button>
+        <br>
         <ul class="additionalIngredients" v-for = "(element, index) in toppings">	
             <li>
                 <div class="name">{{element.name}}</div>
                 <div class="price">{{element.price}}</div>
                 <span class="active">
-                    <button class="minusAditionalIngredients">-</button>
-                    <input type="text" class="inp" readonly value="0">
-                    <button class="plusAditionalIngredients">+</button>
+                    <button v-on:click = "removeTopping(index, element)" class="minusAditionalIngredients">-</button>
+                    <input type="text" class="inp" v-model="inputValue[index]">
+                    <button v-on:click = "addTopping(index, element)" class="plusAditionalIngredients">+</button>
                 </span>
             </li>			
         </ul>
         
         <label for="priceAditionalIngredients" class="abc">Pret adaos:</label>
-        <span class="priceAditionalIngredients">0</span>
+        <span class="priceAditionalIngredients">{{toppingPrice}}</span>
         <br>
-        <button id="okBtn" v-on:click = "closeToppings">OK</button>
+        <button id="okBtn" v-on:click = "clickOkBtn">OK</button>
     </div>
 </template>
 <script>
 export default {
     name: 'toppingWindow',
+    data(){
+        return{
+            inputValue: [0,0,0,0,0,0],
+            toppingPrice: 0
+        }
+    },
     computed: {
         toppings: function() {
             return this.$store.getters.getTopping
         }
+        
     },
     mounted () {
         this.$store.dispatch('fetchTopping').then(() => {})
     },
+    watch:{
+        toppingPrice: function(){
+            this.$store.commit('setToppingPrice', this.toppingPrice)
+        } 
+    },
     methods: {
         closeToppings: function(){
             this.$store.commit('setShowTW', false)
+        },
+        clickOkBtn: function(){
+            this.$store.commit('setShowTW', false)
+            this.toppingPrice = 0
+            
+        },
+        addTopping: function(index,element){
+            this.inputValue[index] += 1
+            this.toppingPrice += element.price
+        },
+        removeTopping: function(index,element){
+            if(this.inputValue[index] == 0)
+                this.inputValue[index] = 0
+            else{
+                this.inputValue[index]-- 
+                this.toppingPrice -= element.price
+            }
+            
         }
     }
 }

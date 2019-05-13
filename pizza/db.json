@@ -1,7 +1,7 @@
 {  
   "interface":[  
      {  
-        "image":"img/margarita.jpg",
+        "image":"assets/margarita.jpg",
         "name":"Margarita",
         "ingredients":[  
            "ingrediente: sos pomodoro",
@@ -10,7 +10,7 @@
         ]
      },
      {  
-        "image":"img/pitstsa-chetyre-sezona.jpg",
+        "image":"assets/pitstsa-chetyre-sezona.jpg",
         "name":"Patru anotimpuri",
         "ingredients":[  
            "ingrediente: sos pomodoro",
@@ -22,7 +22,7 @@
         ]
      },
      {  
-        "image":"img/pepperoni.jpg",
+        "image":"assets/pepperoni.jpg",
         "name":"Pepperoni",
         "ingredients":[  
            "ingrediente: sos pomodoro",
@@ -31,7 +31,7 @@
         ]
      },
      {  
-        "image":"img/assorti.jpg",
+        "image":"assets/assorti.jpg",
         "name":"Asorti",
         "ingredients":[  
            "ingrediente: sos pomodoro",
@@ -43,7 +43,7 @@
         ]
      },
      {  
-        "image":"img/vegetarianskaya.jpg",
+        "image":"assets/vegetarianskaya.jpg",
         "name":"Vegetariana",
         "ingredients":[  
            "ingrediente: sos pomodoro",
@@ -55,7 +55,7 @@
         ]
      },
      {  
-        "image":"img/pikante.jpg",
+        "image":"assets/pikante.jpg",
         "name":"Picanta",
         "ingredients":[  
            "ingrediente: sos de mustar",
@@ -65,7 +65,7 @@
         ]
      },
      {  
-        "image":"img/studencheskaya.jpg",
+        "image":"assets/studencheskaya.jpg",
         "name":"Studenteasca",
         "ingredients":[  
            "ingrediente: sos de busuioc",
@@ -77,7 +77,7 @@
         ]
      },
      {  
-        "image":"img/klassicheskaya.jpg",
+        "image":"assets/klassicheskaya.jpg",
         "name":"Clasica",
         "ingredients":[  
            "ingrediente: sos pomodoro",
@@ -89,7 +89,7 @@
         ]
      },
      {  
-        "image":"img/dolche.jpg",
+        "image":"assets/dolche.jpg",
         "name":"Dolche",
         "ingredients":[  
            "ingrediente: sos de busuioc",

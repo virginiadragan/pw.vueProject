@@ -5,7 +5,11 @@ const store = new Vuex.Store({
     state: {
       pizza : [],
       topping : [],
-      showToppingWindow : false
+      showToppingWindow : false,
+      toppingPrice: 0,
+      selectValue: 0,
+      ordersList:[],
+      pizzaCant:[]
     },
     mutations: {   
         setPizza (state, pizza) {
@@ -16,21 +20,40 @@ const store = new Vuex.Store({
         },
         setShowTW (state, showToppingWindow){
             state.showToppingWindow = showToppingWindow
-            console.log(state.showToppingWindow)
+        },
+        setToppingPrice(state, toppingPrice){
+            state.toppingPrice = toppingPrice
+        },
+        setOrdersList(state, ordersList){
+            state.ordersList.push(ordersList) 
+        },
+        setPizzaCant(state, pizzaCant){
+            state.pizzaCant.push(pizzaCant) 
+        },
+        setPizzaCantModific(state, pizzaCant, index){
+            state.pizzaCant[index] = pizzaCant
         }
     },
     getters: {
         getPizza (state) {
           return state.pizza
-         
         },
         getTopping (state) {
           return state.topping
         },
         getShowTW (state){
-            console.log(state.showToppingWindow)
             return state.showToppingWindow
+        },
+        getToppingPrice (state){
+            return state.toppingPrice
+        },
+        getOrdersList(state){
+            return state.ordersList
+        },
+        getPizzaCant(state){
+            return state.pizzaCant 
         }
+      
     },
     actions: {
         fetchPizza (context){
